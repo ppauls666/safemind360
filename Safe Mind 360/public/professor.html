@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f7f8fc">
+<title>SafeMind 360 — Minhas turmas</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/svg+xml" href="icones/icone.svg">
+<link rel="apple-touch-icon" href="icones/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body data-pagina="professor">
+<a class="pular-conteudo" href="#conteudo-principal">Ir para o conteúdo principal</a>
+
+<header class="topo">
+  <div class="marca">
+    <span class="marca-icone"><span class="material-symbols-outlined" aria-hidden="true">psychology</span></span>
+    SafeMind <b>360</b>
+  </div>
+  <div class="topo-direita">
+    <div class="a11y-topo" role="group" aria-label="Ferramentas de acessibilidade">
+      <button type="button" class="a11y-btn" data-a11y="diminuir" aria-label="Diminuir tamanho do texto">A−</button>
+      <button type="button" class="a11y-btn" data-a11y="aumentar" aria-label="Aumentar tamanho do texto">A+</button>
+      <button type="button" class="a11y-btn" data-a11y="contraste" aria-pressed="false">Contraste</button>
+    </div>
+    <span class="chip-ambiente" data-ambiente></span>
+    <span class="usuario" data-usuario>—</span>
+    <button type="button" class="btn discreto" data-sair><span class="material-symbols-outlined" aria-hidden="true">logout</span><span>Sair</span></button>
+  </div>
+</header>
+
+<main class="conteudo" id="conteudo-principal">
+  <div class="saudacao">
+    <div>
+      <h1 id="saudacao">Minhas turmas</h1>
+      <p class="sub">Indicadores da turma inteira, sem nomes. Relatos e situações individuais ficam com a coordenação e a psicologia.</p>
+    </div>
+    <p class="ao-vivo" id="ao-vivo"><i aria-hidden="true"></i><span>Atualiza sozinho</span></p>
+  </div>
+
+  <div class="seletor-turmas" role="group" aria-label="Escolher turma" id="seletor-turmas"></div>
+
+  <div id="sem-turmas" class="cartao vazio oculto">
+    <p>Nenhuma turma vinculada ao seu acesso ainda. Peça à coordenação para incluir suas turmas.</p>
+  </div>
+
+  <div id="painel-turma">
+    <p class="aviso-faixa oculto" id="aviso-insuficiente" role="status"></p>
+
+    <div class="kpis" id="kpis-turma"></div>
+
+    <div class="grade">
+      <section class="cartao" aria-labelledby="t-clima">
+        <h2 id="t-clima">Clima da turma nos últimos 14 dias</h2>
+        <div id="grafico-clima" class="area-grafico"></div>
+        <p class="sub">Índice de 0 a 100 calculado a partir dos check-ins e questionários. Dias com menos de 3 registros ficam em branco para proteger quem respondeu.</p>
+      </section>
+      <section class="cartao" aria-labelledby="t-temas">
+        <h2 id="t-temas">Temas que aparecem nos registros</h2>
+        <div id="temas" class="lista-barras-h"></div>
+        <p class="sub">Parte dos registros dos últimos 14 dias com cada tipo de sinal identificado pela IA.</p>
+      </section>
+    </div>
+
+    <section class="cartao" aria-labelledby="t-alertas-turma">
+      <h2 id="t-alertas-turma">Alertas da turma</h2>
+      <ul class="alertas-turma" id="alertas-turma" aria-live="polite"></ul>
+    </section>
+
+    <section class="cartao" aria-labelledby="t-dinamicas">
+      <h2 id="t-dinamicas">Sugestões de dinâmicas para a turma</h2>
+      <p class="sub" id="sub-dinamicas">Escolhidas a partir dos temas mais presentes. Adapte ao seu jeito e à sua turma.</p>
+      <div id="dinamicas" class="dinamicas"></div>
+    </section>
+
+    <section class="cartao" aria-labelledby="t-comparativo">
+      <h2 id="t-comparativo">Suas turmas lado a lado</h2>
+      <div class="rolagem">
+        <table class="tabela">
+          <caption class="somente-leitor">Comparativo das turmas do professor</caption>
+          <thead><tr><th scope="col">Turma</th><th scope="col">Índice de clima</th><th scope="col">Variação na semana</th><th scope="col">Registros (7 dias)</th><th scope="col">Atenção</th></tr></thead>
+          <tbody id="comparativo"></tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <footer class="faixa">
+    <span class="material-symbols-outlined" aria-hidden="true">balance</span>
+    <span>Os indicadores apoiam o seu olhar pedagógico e não fazem diagnóstico. Percebeu algo com um estudante? Converse com a coordenação.</span>
+  </footer>
+
+  <nav class="nav-mobile" aria-label="Navegação rápida">
+    <a href="#conteudo-principal"><span class="material-symbols-outlined" aria-hidden="true">dashboard</span><span>Resumo</span></a>
+    <a href="#t-alertas-turma"><span class="material-symbols-outlined" aria-hidden="true">notifications</span><span>Alertas</span></a>
+    <a href="#t-dinamicas"><span class="material-symbols-outlined" aria-hidden="true">groups</span><span>Dinâmicas</span></a>
+    <button type="button" data-sair><span class="material-symbols-outlined" aria-hidden="true">logout</span><span>Sair</span></button>
+  </nav>
+</main>
+
+<script src="js/config.js"></script>
+<script src="js/dados.js"></script>
+<script src="js/motor-ia.js"></script>
+<script src="js/negocio.js"></script>
+<script src="js/dados-demo.js"></script>
+<script src="js/ui-comum.js"></script>
+<script src="js/ui-professor.js"></script>
+</body>
+</html>

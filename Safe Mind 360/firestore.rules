@@ -1,0 +1,113 @@
+rules_version = '2';
+
+// SafeMind 360 — regras de acesso do Cloud Firestore
+// Aplicam no servidor as mesmas permissões da camada de negócio:
+//   RF08 / RN06  perfis Estudante, Professor e Coordenação/Psicologia
+//   RN03         relato anônimo não pode carregar identificação
+//   RN05 / RNF01 professor só lê dados consolidados (insights) das próprias turmas
+//   RN07         alerta só muda de status com uma intervenção registrada
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function logado() { return request.auth != null; }
+    function eu() { return get(/databases/$(database)/documents/usuarios/$(request.auth.uid)).data; }
+    function ativo() { return eu().get('ativo', true) == true; }
+    function perfil() { return eu().perfil; }
+    function eEstudante() { return logado() && perfil() == 'estudante' && ativo(); }
+    function eProfessor() { return logado() && perfil() == 'professor' && ativo(); }
+    function eCoordenacao() { return logado() && perfil() == 'coordenacao' && ativo(); }
+    function minhasTurmas() { return eu().get('turmas', []); }
+    function minhaTurma() { return eu().get('turma', null); }
+    function dono() { return logado() && resource.data.autorUid == request.auth.uid; }
+    function novoDono() { return logado() && request.resource.data.autorUid == request.auth.uid; }
+
+    // ---------------- usuários ----------------
+    match /usuarios/{uid} {
+      allow read: if logado() && (request.auth.uid == uid || eCoordenacao());
+      // Autocadastro: só como estudante. Contas da equipe são criadas pela coordenação.
+      allow create: if logado() && (
+        (request.auth.uid == uid && request.resource.data.perfil == 'estudante')
+        || eCoordenacao());
+      // A própria pessoa não altera perfil, turmas nem a situação do acesso.
+      allow update: if eCoordenacao()
+        || (logado() && request.auth.uid == uid
+            && !request.resource.data.diff(resource.data).affectedKeys().hasAny(['perfil', 'turmas', 'ativo'])
+            && (resource.data.get('turma', null) == null
+                || !request.resource.data.diff(resource.data).affectedKeys().hasAny(['turma'])));
+      allow delete: if eCoordenacao();
+    }
+
+    // ---------------- dados de configuração ----------------
+    match /turmas/{id} {
+      allow read: if true;            // nomes de turma (usados no cadastro)
+      allow write: if eCoordenacao();
+    }
+    match /configuracoes/{id} {
+      allow read: if true;            // política de uso (Lei 15.100) lida antes do login
+      allow write: if eCoordenacao();
+    }
+    match /questionarios/{id} {
+      allow read: if logado();
+      allow write: if eCoordenacao();
+    }
+
+    // ---------------- RF01 check-in / RF02 respostas ----------------
+    match /checkins/{id} {
+      allow create: if eEstudante() && novoDono();
+      allow read: if dono() || eCoordenacao();
+      allow update: if false;
+      allow delete: if dono();         // LGPD: eliminação pelo titular
+    }
+    match /respostas/{id} {
+      allow create: if eEstudante() && novoDono();
+      allow read: if dono() || eCoordenacao();
+      allow update: if false;
+      allow delete: if dono();
+    }
+
+    // ---------------- RF03 / RN03 relatos ----------------
+    match /relatos/{id} {
+      allow create: if eEstudante() && request.resource.data.lido == false && (
+        (request.resource.data.nivelPrivacidade == 'ANONIMO'
+          && request.resource.data.autorUid == null
+          && request.resource.data.autorNome == null)
+        || (request.resource.data.nivelPrivacidade in ['CONFIDENCIAL', 'SITUACAO_DE_RISCO']
+          && novoDono()));
+      allow read: if eCoordenacao() || dono();
+      allow update: if eCoordenacao()
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['lido', 'status']);
+      allow delete: if eCoordenacao();
+    }
+
+    // ---------------- DashboardInsights (eventos anônimos) ----------------
+    match /insights/{id} {
+      allow create: if eEstudante()
+        && request.resource.data.turma == minhaTurma()
+        && !request.resource.data.keys().hasAny(['autorUid', 'autorNome', 'uid', 'nome']);
+      allow read: if eCoordenacao() || (eProfessor() && resource.data.turma in minhasTurmas());
+      allow update, delete: if false;
+    }
+
+    // ---------------- Alertas (RN01, RN04, RN07) ----------------
+    match /alertas/{id} {
+      // Gerados pelo MotorIA durante o uso do estudante: sempre "novo" e não lido.
+      allow create: if eEstudante()
+        && request.resource.data.status == 'novo'
+        && request.resource.data.lido == false
+        && (request.resource.data.estudanteUid == request.auth.uid
+            || request.resource.data.estudanteUid == null);
+      allow read: if eCoordenacao();
+      // RN07: mudar o status exige uma intervenção existente.
+      allow update: if eCoordenacao() && (
+        request.resource.data.status == resource.data.status
+        || exists(/databases/$(database)/documents/intervencoes/$(request.resource.data.ultimaIntervencaoId)));
+      allow delete: if false;
+    }
+
+    // ---------------- RF06 / RF07 intervenções ----------------
+    match /intervencoes/{id} {
+      allow read, create, update: if eCoordenacao();
+      allow delete: if false;          // histórico auditável
+    }
+  }
+}

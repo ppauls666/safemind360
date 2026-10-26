@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f7f8fc">
+<title>SafeMind 360 — Meu espaço</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/svg+xml" href="icones/icone.svg">
+<link rel="apple-touch-icon" href="icones/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body data-pagina="aluno">
+<a class="pular-conteudo" href="#conteudo-principal">Ir para o conteúdo principal</a>
+
+<header class="topo">
+  <div class="marca">
+    <span class="marca-icone"><span class="material-symbols-outlined" aria-hidden="true">psychology</span></span>
+    SafeMind <b>360</b>
+  </div>
+  <div class="topo-direita">
+    <div class="a11y-topo" role="group" aria-label="Ferramentas de acessibilidade">
+      <button type="button" class="a11y-btn" data-a11y="diminuir" aria-label="Diminuir tamanho do texto">A−</button>
+      <button type="button" class="a11y-btn" data-a11y="aumentar" aria-label="Aumentar tamanho do texto">A+</button>
+      <button type="button" class="a11y-btn" data-a11y="contraste" aria-pressed="false">Contraste</button>
+    </div>
+    <span class="chip-ambiente" data-ambiente></span>
+    <span class="usuario" data-usuario>—</span>
+    <button type="button" class="btn discreto" id="sair" data-sair><span class="material-symbols-outlined" aria-hidden="true">logout</span><span>Sair</span></button>
+  </div>
+</header>
+
+<main class="conteudo" id="conteudo-principal">
+
+  <p class="faixa-dispositivo oculto" data-dispositivo>
+    <span class="material-symbols-outlined" aria-hidden="true">computer</span>
+    <span>Equipamento da escola: <b data-dispositivo-nome></b>. Sua sessão termina sozinha depois de 3 minutos sem uso.</span>
+  </p>
+  <p class="aviso-faixa alerta oculto" id="aviso-politica" role="status"></p>
+
+  <div class="saudacao">
+    <div>
+      <h1 id="saudacao">Olá!</h1>
+      <p class="sub">Este espaço é seu. Professores não leem o que você escreve aqui.</p>
+    </div>
+  </div>
+
+  <!-- RF01 – Check-in socioemocional -->
+  <section class="cartao destaque" id="checkin" aria-labelledby="t-checkin">
+    <h2 id="t-checkin">Como você está se sentindo hoje?</h2>
+    <div class="humores" id="humores" role="group" aria-labelledby="t-checkin"></div>
+
+    <div class="checkin-detalhes oculto" id="checkin-detalhes">
+      <fieldset class="grupo-chips">
+        <legend>Qual palavra combina mais com isso?</legend>
+        <div class="chips" id="sentimentos"></div>
+      </fieldset>
+      <label class="campo">
+        <span>Quer contar mais? <small>(opcional)</small></span>
+        <textarea id="notas" rows="2" maxlength="500" aria-describedby="nota-notas"></textarea>
+        <small class="ajuda" id="nota-notas">Professores não veem suas anotações. A coordenação/psicologia só consulta se aparecer um sinal de atenção.</small>
+      </label>
+      <p class="erro oculto" id="erro-checkin" role="alert"></p>
+      <div class="acoes-linha">
+        <button type="button" class="btn principal pequeno" id="salvar-checkin"><span class="material-symbols-outlined" aria-hidden="true">check</span><span>Salvar check-in</span></button>
+        <button type="button" class="btn discreto pequeno" id="cancelar-checkin">Cancelar</button>
+      </div>
+    </div>
+
+    <div class="confirmacao oculto" id="confirmacao" role="status" aria-live="polite" tabindex="-1"></div>
+    <p class="sub ultimo" id="ultimo-checkin"></p>
+  </section>
+
+  <div class="grade">
+    <!-- RF02 – Questionário periódico -->
+    <section class="cartao" id="questionario" aria-labelledby="t-questionario">
+      <h2 id="t-questionario">Questionário de convivência</h2>
+      <div id="questionario-conteudo"><p class="sub">Carregando…</p></div>
+    </section>
+
+    <!-- RF03 / RN03 – Relato com nível de privacidade -->
+    <section class="cartao" id="relato" aria-labelledby="t-relato">
+      <h2 id="t-relato">Contar algo para a escola</h2>
+      <p class="sub">Aconteceu algo com você ou com um colega? Você escolhe quem pode saber que foi você.</p>
+      <form id="form-relato" novalidate>
+        <label class="campo">
+          <span>Título</span>
+          <input type="text" id="relato-titulo" maxlength="80" placeholder="Ex.: Aconteceu no intervalo">
+        </label>
+        <label class="campo">
+          <span>O que aconteceu?</span>
+          <textarea id="relato-descricao" rows="4" maxlength="2000"></textarea>
+        </label>
+        <fieldset class="niveis" id="niveis">
+          <legend>Quem pode saber que foi você? <span class="obrigatorio">obrigatório</span></legend>
+        </fieldset>
+        <label class="checkbox oculto" id="linha-turma">
+          <input type="checkbox" id="relato-turma" checked>
+          <span>Informar minha turma. Ajuda a escola a agir com o grupo, sem saber quem escreveu.</span>
+        </label>
+        <p class="erro oculto" id="erro-relato" role="alert"></p>
+        <button type="submit" class="btn principal pequeno" id="enviar-relato"><span class="material-symbols-outlined" aria-hidden="true">send</span><span>Enviar relato</span></button>
+      </form>
+      <div class="resposta oculto" id="resposta-relato" role="status" tabindex="-1"></div>
+    </section>
+  </div>
+
+  <div class="grade">
+    <!-- Assistente Safe -->
+    <section class="cartao" id="sessao-chat" aria-labelledby="t-chat">
+      <h2 id="t-chat">Converse com o Assistente Safe</h2>
+      <p class="sub">Fale sobre seu dia, a escola, amizades ou como você está.</p>
+      <div id="historico-chat" class="historico-chat" role="log" aria-live="polite" aria-label="Histórico da conversa" tabindex="0">
+        <div class="mensagem-chat assistente">Oi! Eu sou o Assistente Safe. Pode falar comigo do seu jeito. Como foi seu dia hoje?</div>
+      </div>
+      <p id="privacidade-chat" class="nota-privacidade"><span class="material-symbols-outlined" aria-hidden="true">shield</span><span>A conversa não fica guardada. Se o sistema perceber que você pode precisar de apoio, a coordenação recebe só um aviso resumido. O assistente não substitui uma pessoa.</span></p>
+      <div class="compositor-chat">
+        <label class="somente-leitor" for="mensagem">Mensagem para o assistente</label>
+        <textarea id="mensagem" rows="2" maxlength="600" aria-describedby="privacidade-chat" placeholder="Digite sua mensagem"></textarea>
+        <button type="button" class="btn principal pequeno" id="enviar-mensagem"><span class="material-symbols-outlined" aria-hidden="true">send</span><span>Enviar</span></button>
+      </div>
+    </section>
+
+    <section class="cartao" aria-labelledby="t-semana">
+      <h2 id="t-semana">Seu bem-estar na semana</h2>
+      <div class="barras" id="barras"></div>
+      <p class="sub" id="resumo-semana">Faça seu check-in para acompanhar.</p>
+      <h3 class="mini-titulo">Suas conquistas</h3>
+      <ul class="conquistas" id="conquistas"></ul>
+    </section>
+  </div>
+
+  <div class="grade">
+    <section class="cartao" aria-labelledby="t-dica">
+      <h2 id="t-dica">Dica para você</h2>
+      <p class="dica" id="dica">—</p>
+      <h3 class="mini-titulo">Atividades de 5 minutos</h3>
+      <ul class="atividades" id="atividades">
+        <li><button type="button" data-tipo="respiracao"><span class="material-symbols-outlined" aria-hidden="true">air</span><span><b>Respiração 4-7-8</b><small>Acalma o corpo rápido</small></span></button></li>
+        <li><button type="button" data-tipo="gratidao"><span class="material-symbols-outlined" aria-hidden="true">eco</span><span><b>Três coisas boas</b><small>Muda o foco do dia</small></span></button></li>
+        <li><button type="button" data-tipo="corpo"><span class="material-symbols-outlined" aria-hidden="true">self_improvement</span><span><b>Pausa consciente</b><small>Volta para o momento presente</small></span></button></li>
+      </ul>
+      <div class="exercicio oculto" id="exercicio" tabindex="-1" aria-live="polite"></div>
+    </section>
+
+    <!-- RNF01 – LGPD: direitos do titular -->
+    <section class="cartao" id="meus-dados" aria-labelledby="t-dados">
+      <h2 id="t-dados">Seus dados</h2>
+      <p class="sub">Guardamos seus check-ins, respostas de questionário e relatos com nome. A conversa com o assistente não é guardada. Tudo é apagado automaticamente depois de <span id="dias-retencao">180</span> dias.</p>
+      <dl class="resumo-dados" id="resumo-dados"></dl>
+      <div class="acoes-linha">
+        <button type="button" class="btn discreto pequeno" id="baixar-dados"><span class="material-symbols-outlined" aria-hidden="true">download</span><span>Baixar meus dados</span></button>
+        <button type="button" class="btn discreto pequeno" id="apagar-dados"><span class="material-symbols-outlined" aria-hidden="true">delete</span><span>Apagar check-ins e respostas</span></button>
+        <button type="button" class="btn discreto pequeno" id="ver-termo"><span class="material-symbols-outlined" aria-hidden="true">description</span><span>Como usamos seus dados</span></button>
+      </div>
+    </section>
+  </div>
+
+  <footer class="faixa faixa-ajuda">
+    <span class="material-symbols-outlined" aria-hidden="true">support</span>
+    <span>Precisa de ajuda agora? Procure um adulto de confiança na escola. CVV: ligue 188 (gratuito, 24 horas). Violência contra criança ou adolescente: Disque 100.</span>
+  </footer>
+
+  <nav class="nav-mobile cinco" aria-label="Navegação rápida">
+    <a href="#checkin"><span class="material-symbols-outlined" aria-hidden="true">mood</span><span>Check-in</span></a>
+    <a href="#questionario"><span class="material-symbols-outlined" aria-hidden="true">checklist</span><span>Questionário</span></a>
+    <a href="#relato"><span class="material-symbols-outlined" aria-hidden="true">edit_note</span><span>Relato</span></a>
+    <a href="#sessao-chat"><span class="material-symbols-outlined" aria-hidden="true">chat_bubble</span><span>Conversa</span></a>
+    <button type="button" data-sair><span class="material-symbols-outlined" aria-hidden="true">logout</span><span>Sair</span></button>
+  </nav>
+</main>
+
+<script src="js/config.js"></script>
+<script src="js/dados.js"></script>
+<script src="js/motor-ia.js"></script>
+<script src="js/negocio.js"></script>
+<script src="js/dados-demo.js"></script>
+<script src="js/ui-comum.js"></script>
+<script src="js/ui-aluno.js"></script>
+</body>
+</html>

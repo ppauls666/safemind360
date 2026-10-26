@@ -1,0 +1,13 @@
+{
+  "name": "safemind-360",
+  "version": "2.0.0",
+  "private": true,
+  "description": "SafeMind 360: monitoramento do clima escolar e prevenção de conflitos com apoio de IA (TCC).",
+  "scripts": {
+    "test": "node --test testes/motor-ia.test.js testes/regras.test.js testes/firestore-adaptador.test.js",
+    "start": "npx --yes serve public -l 8080",
+    "deploy:firebase": "firebase deploy",
+    "deploy:regras": "firebase deploy --only firestore:rules"
+  },
+  "engines": { "node": ">=18" }
+}
