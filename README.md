@@ -1,16 +1,4 @@
-<!--
-  ╔══════════════════════════════════════════════════════════════════════════╗
-  ║  GUIA DE EDIÇÃO — invisível no GitHub                                    ║
-  ║  Procure por "✏️" (Ctrl+F) para achar cada ponto que precisa ser trocado. ║
-  ╠══════════════════════════════════════════════════════════════════════════╣
-  ║  [ ] 1. seu-usuario/seu-repo ...... caminho do repositório (6 lugares)    ║
-  ║  [ ] 2. URL da demonstração ....... hoje: safemind-360.netlify.app        ║
-  ║  [ ] 3. docs/screenshots/*.png .... 2 capturas (a pasta docs/ não existe) ║
-  ║  [ ] 4. docs/demo.gif ............. GIF da demonstração                   ║
-  ║  [ ] 5. GitHub / LinkedIn / e-mail  dos dois autores                      ║
-  ║  [ ] 6. LICENSE ................... criar o arquivo ou trocar a licença   ║
-  ╚══════════════════════════════════════════════════════════════════════════╝
--->
+
  
 # 🚀 SafeMind 360
  
@@ -28,7 +16,7 @@
 [Demo ao Vivo](https://safemind360.netlify.app/) · [Reportar Bug](https://github.com/ppauls666/safemind360/issues) · [Solicitar Feature](https://github.com/ppauls666/safemind360)
  
 </div>
----
+
  
 ## 📋 Sobre o Projeto
  
@@ -73,9 +61,6 @@ Com **"Onde ficam os dados" → Demonstração**, todas usam a senha `safemind12
 | `professor@safemind.ai` | Professora (Helena Rocha) | Indicadores anônimos de 3 turmas; 7º Ano B com alerta de exclusão |
 | `coordenacao@safemind.ai` | Coordenação/Psicologia | Alerta prioritário, intervenções, eficácia, acessos, métricas da IA |
  
-> 💡 **Dica para a banca:** abra a coordenação em uma aba e o estudante em outra. Um relato marcado como "Situação de risco" aparece no painel na hora (RNF05 e RN04).
- 
----
  
 ## 🛠️ Tecnologias Utilizadas
  
@@ -93,6 +78,7 @@ Com **"Onde ficam os dados" → Demonstração**, todas usam a senha `safemind12
 - ![Netlify](https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)
 - ![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
 - ![VS Code](https://img.shields.io/badge/VS_Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white)
+
 Sem framework, sem empacotador e sem pré-processador: o que está em `public/` é exatamente o que vai para o ar. Os testes usam o `node --test` nativo. As únicas dependências em tempo de execução são o SDK do Firebase e os ícones Material Symbols, ambos por CDN e liberados na CSP.
  
 ---
@@ -160,7 +146,7 @@ cd public && python3 -m http.server 8080
 http://localhost:8080
 ```
  
-> ⚠️ Abrir os arquivos com duplo clique (`file://`) não funciona: o service worker e o `fetch` exigem `http://`.
+> ⚠️ Os arquivos com duplo clique (`file://`) não funciona: o service worker e o `fetch` exigem `http://`.
  
 ---
  
