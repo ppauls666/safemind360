@@ -366,7 +366,7 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 **Paulo César Santos Matos**
  
 - GitHub: [@ppauls666](https://github.com/ppauls666)
-- LinkedIn: [Paulo César Santos Matos]([https://linkedin.com/in/seu-perfil](https://www.linkedin.com/in/paulo-c%C3%A9sar-a799b8258/))
+- LinkedIn: [Paulo César Santos Matos](https://www.linkedin.com/in/paulo-c%C3%A9sar-a799b8258/)
 - Email: paulomatosm90@gmail.com
   
 **Orientação:** Luana Magalhães Leal
