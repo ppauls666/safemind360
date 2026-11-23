@@ -27,7 +27,7 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
  
 <!-- ✏️ TROCAR: a URL da demonstração ao vivo -->
-[Demo ao Vivo](https://safemind-360.netlify.app) · [Reportar Bug](https://github.com/seu-usuario/seu-repo/issues) · [Solicitar Feature](https://github.com/seu-usuario/seu-repo/issues)
+[Demo ao Vivo](https://safemind360.netlify.app/) · [Reportar Bug](https://github.com/ppauls666/safemind360) · [Solicitar Feature](https://github.com/ppauls666/safemind360)
  
 </div>
 ---
@@ -363,14 +363,16 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
  
 **Kawane Dantas Cavalcante**
  
-- GitHub: [@seu-usuario](https://github.com/seu-usuario)
+- GitHub: [@kawane.cacau](kawane.cacau@gmail.com)
 - LinkedIn: [Kawane Dantas Cavalcante](https://linkedin.com/in/seu-perfil)
 - Email: seu.email@example.com
+  
 **Paulo César Santos Matos**
  
-- GitHub: [@ppauls666]([https://github.com/seu-usuario](https://github.com/ppauls666))
+- GitHub: [@ppauls666](https://github.com/ppauls666)
 - LinkedIn: [Paulo César Santos Matos]([https://linkedin.com/in/seu-perfil](https://www.linkedin.com/in/paulo-c%C3%A9sar-a799b8258/))
 - Email: paulomatosm90@gmail.com
+  
 **Orientação:** Luana Magalhães Leal
  
 ---
