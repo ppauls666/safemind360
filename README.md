@@ -364,8 +364,8 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 **Kawane Dantas Cavalcante**
  
 - GitHub: [@kawane.cacau](kawane.cacau@gmail.com)
-- LinkedIn: [Kawane Dantas Cavalcante](https://linkedin.com/in/seu-perfil)
-- Email: seu.email@example.com
+- LinkedIn: [Kawane Dantas Cavalcante](https://www.linkedin.com/in/kawane-dantas-3442412b0/)
+- Email:  kawane.cavalcante@hotmail.com
   
 **Paulo César Santos Matos**
  
