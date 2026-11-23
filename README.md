@@ -47,12 +47,14 @@ Trabalho de Conclusão de Curso de **Kawane Dantas Cavalcante** e **Paulo César
 <!-- ✏️ TROCAR: criar a pasta docs/screenshots/ e colocar as 2 imagens -->
  
 <div align="center">
-  <img src="docs/screenshots/tela-aluno.png" alt="Tela do estudante" width="45%">
-  <img src="docs/screenshots/painel-coordenacao.png" alt="Painel da coordenação" width="45%">
+  <img alt="docsscreenshotstela-aluno" src="https://github.com/user-attachments/assets/68a60b3b-b0d2-4faa-b73f-0d93e54e4c4d" alt="Tela do estudante" width="45%" />
+  <img alt="docsscreenshotspainel-coordenacao" src="https://github.com/user-attachments/assets/94bcd6b3-72d3-4a84-bac6-f0fac9e76402" alt="Painel da coordenação" width="45% />
 </div>
 
-### Contas de Demonstração
- 
+
+
+
+## Contas de Demonstração
 Com **"Onde ficam os dados" → Demonstração**, todas usam a senha `safemind123`:
  
 | E-mail | Perfil | O que mostrar |
