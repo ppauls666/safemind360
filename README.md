@@ -47,8 +47,27 @@ Trabalho de Conclusão de Curso de **Kawane Dantas Cavalcante** e **Paulo César
 <!-- ✏️ TROCAR: criar a pasta docs/screenshots/ e colocar as 2 imagens -->
  
 <div align="center">
-  <img alt="docsscreenshotstela-aluno" src="https://github.com/user-attachments/assets/68a60b3b-b0d2-4faa-b73f-0d93e54e4c4d" />
-  <img alt="docsscreenshotspainel-coordenacao" src="https://github.com/user-attachments/assets/94bcd6b3-72d3-4a84-bac6-f0fac9e76402" />
+
+<table>
+  <tr>
+    <td align="center" width="33%">
+      <img src="https://github.com/user-attachments/assets/68a60b3b-b0d2-4faa-b73f-0d93e54e4c4d" alt="Tela do estudante" width="100%"><br>
+      <b>Estudante</b><br>
+      <sub>Termo de ciência LGPD, check-in socioemocional e relato com três níveis de privacidade</sub>
+    </td>
+    <td align="center" width="33%">
+      <img src="https://github.com/user-attachments/assets/94bcd6b3-72d3-4a84-bac6-f0fac9e76402" alt="Painel da coordenação" width="100%"><br>
+      <b>Coordenação e psicologia</b><br>
+      <sub>Visão geral da escola, alertas prioritários, relatos e intervenções</sub>
+    </td>
+    <td align="center" width="33%">
+      <img src="https://github.com/user-attachments/assets/668ee039-b1d6-4962-8de1-62b4187e311b" alt="Tela do professor" width="100%"><br>
+      <b>Professor</b><br>
+      <sub>Indicadores da turma sem nomes; com menos de 5 registros, os dados ficam ocultos (RN05)</sub>
+    </td>
+  </tr>
+</table>
+
 </div>
 
 ## Contas de Demonstração
