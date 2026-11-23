@@ -51,9 +51,6 @@ Trabalho de Conclusão de Curso de **Kawane Dantas Cavalcante** e **Paulo César
   <img alt="docsscreenshotspainel-coordenacao" src="https://github.com/user-attachments/assets/94bcd6b3-72d3-4a84-bac6-f0fac9e76402" alt="Painel da coordenação" width="45% />
 </div>
 
-
-
-
 ## Contas de Demonstração
 Com **"Onde ficam os dados" → Demonstração**, todas usam a senha `safemind123`:
  
