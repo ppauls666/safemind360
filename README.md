@@ -15,8 +15,6 @@
 # 🚀 SafeMind 360
  
 <div align="center">
-<!-- ✏️ TROCAR (opcional): o logo usa o ícone do próprio PWA -->
-![Logo do SafeMind 360](public/icones/icone-512.png)
  
 **Monitoramento do clima escolar e prevenção de conflitos com apoio de Inteligência Artificial**
  
@@ -27,7 +25,7 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
  
 <!-- ✏️ TROCAR: a URL da demonstração ao vivo -->
-[Demo ao Vivo](https://safemind360.netlify.app/) · [Reportar Bug](https://github.com/ppauls666/safemind360) · [Solicitar Feature](https://github.com/ppauls666/safemind360)
+[Demo ao Vivo](https://safemind360.netlify.app/) · [Reportar Bug](https://github.com/ppauls666/safemind360/issues) · [Solicitar Feature](https://github.com/ppauls666/safemind360)
  
 </div>
 ---
@@ -64,13 +62,7 @@ Trabalho de Conclusão de Curso de **Kawane Dantas Cavalcante** e **Paulo César
   <img src="docs/screenshots/tela-aluno.png" alt="Tela do estudante" width="45%">
   <img src="docs/screenshots/painel-coordenacao.png" alt="Painel da coordenação" width="45%">
 </div>
-### GIF Demonstrativo
- 
-<!-- ✏️ TROCAR: gravar o GIF — sugestão: relato de risco saindo do aluno e chegando ao painel -->
- 
-<div align="center">
-  <img src="docs/demo.gif" alt="Relato de risco chegando ao painel em tempo real" width="80%">
-</div>
+
 ### Contas de Demonstração
  
 Com **"Onde ficam os dados" → Demonstração**, todas usam a senha `safemind123`:
